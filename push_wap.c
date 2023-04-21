@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_wap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:42:21 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/01/25 16:31:38 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/04/09 10:14:11 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "push_swap.h"
 
 #define MAX_SIZE 100
 
@@ -20,7 +21,7 @@
 ** 42 School Style
 */
 
-#include "push_swap.h"
+
 
 int	ft_is_sorted(int *a, int n)
 {
@@ -73,6 +74,7 @@ int	ft_biggest(int *b, int n)
 void	push_swap(int *a, int *b, int na, int nb)
 {
 	int i, j;
+
 	while (!ft_is_sorted(a, na))
 	{
 		i = ft_smallest(a, na);
@@ -99,13 +101,12 @@ void	push_swap(int *a, int *b, int na, int nb)
 
 int	main(int argc, char **argv)
 {
-	int	*a;
-	int	*b;
-	int	na;
-	int	nb;
-	int	i;
+	int			*a;
+	int			*b;
+	int			na;
+	int			nb;
+	t_stacks	s;
 
-	i = 1;
 	a = malloc(sizeof(int) * argc);
 	b = malloc(sizeof(int) * argc);
 	if (!a || !b)
@@ -114,8 +115,8 @@ int	main(int argc, char **argv)
 		return (0);
 	na = 0;
 	nb = 0;
-	while (i++)
-		a[na++] = atoi(argv[i]);
-	push_swap(a, b, na, nb);
+	while ((na + 1) < argc)
+		a[na++] = atoi(argv[na + 1]);
+	s = init_stacks(a, b, na, nb);
 	return (0);
 }
