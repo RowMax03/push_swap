@@ -6,73 +6,73 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:12:41 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/01/25 15:46:44 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/04/23 16:26:05 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(int *a, int n)
+void	sa(t_stacks *s)
 {
 	int	temp;
 
-	if (n >= 2)
+	if (s->na >= 2)
 	{
-		temp = a[0];
-		a[0] = a[1];
-		a[1] = temp;
+		temp = s->a[0];
+		s->a[0] = s->a[1];
+		s->a[1] = temp;
 	}
 }
 
-void	sb(int *b, int n)
+void	sb(t_stacks *s)
 {
 	int	temp;
 
-	if (n >= 2)
+	if (s->nb >= 2)
 	{
-		temp = b[0];
-		b[0] = b[1];
-		b[1] = temp;
+		temp = s->b[0];
+		s->b[0] = s->b[1];
+		s->b[1] = temp;
 	}
 }
 
-void	ss(int *a, int *b, int na, int nb)
+void	ss(t_stacks *s)
 {
-	sa(a, na);
-	sb(b, nb);
+	sa(s);
+	sb(s);
 }
 
-void	pa(int *a, int *b, int *na, int *nb)
+void	pa(t_stacks *s)
 {
 	int	i;
 
 	i = 0;
-	if (*nb >= 1)
+	if (s->nb >= 1)
 	{
-		a[*na] = b[0];
-		(*na)++;
-		(*nb)--;
-		while (i < *nb)
+		s->a[0] = s->b[0];
+		(s->na)++;
+		(s->nb)--;
+		while (i < s->nb)
 		{
-			b[i] = b[i + 1];
+			s->b[i] = s->b[i + 1];
 			i++;
 		}
 	}
 }
 
-void	pb(int *a, int *b, int *na, int *nb)
+void	pb(t_stacks *s)
 {
 	int	i;
 
 	i = 0;
-	if (*na >= 1)
+	if (s->na >= 1)
 	{
-		b[*nb] = a[0];
-		(*nb)++;
-		(*na)--;
-		while (i < *na)
+		s->b[0] = s->a[0];
+		(s->nb)++;
+		(s->na)--;
+		while (i < s->na)
 		{
-			a[i] = a[i + 1];
+			s->a[i] = s->a[i + 1];
 			i++;
 		}
 	}
