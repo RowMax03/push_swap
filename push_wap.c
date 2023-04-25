@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_wap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:42:21 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/04/09 10:14:11 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/04/24 15:26:31 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,16 @@
 ** 42 School Style
 */
 
-
-
-int	ft_is_sorted(int *a, int n)
+int	ft_is_sorted_a(t_stacks *s)
 {
-	for (int i = 0; i < n - 1; i++)
+	int	i;
+
+	i = 0;
+	while (i < s->na - 1)
 	{
-		if (a[i] > a[i + 1])
+		if (s->a[i] > s->a[i + 1])
 			return (0);
+		i++;
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:48:36 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/04/23 16:28:01 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/04/24 15:26:44 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void		rra(t_stacks *s);
 void		rrb(t_stacks *s);
 void		rrr(t_stacks *s);
 void		push_swap(t_stacks *s);
-int			ft_is_sorted(t_stacks *s);
+int			ft_is_sorted_a(t_stacks *s);
 int			ft_smallest(t_stacks *s);
 int			ft_biggest(t_stacks *s);
 int			find_median(int arr[], int n);
