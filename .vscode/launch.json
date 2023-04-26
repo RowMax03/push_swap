@@ -5,7 +5,7 @@
             "name": "Debug push_swap",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/a.out",
+            "program": "${workspaceFolder}/push_swap",
             "args": [
                 "12",
                 "14",

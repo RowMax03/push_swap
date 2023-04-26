@@ -6,13 +6,13 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 16:32:15 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/04/24 16:33:41 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/04/26 16:32:04 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	count_smaller(int value, int *temp, int size)
+static int	count_smaller(int value, int *temp, int size)
 {
 	int	i;
 	int	amount;

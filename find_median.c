@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:53:30 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/01/25 15:10:16 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/04/26 17:05:09 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,13 +60,3 @@ int	find_median(int arr[], int n)
 	return (quick_select(arr, 0, n - 1, n / 2));
 }
 
-int	main(void)
-{
-	int	arr[] = {12, 3, 5, 7, 4, 19, 26, 23, 17, 74, 99, -14};
-	int	n;
-
-	n = sizeof(arr) / sizeof(arr[0]);
-	printf("n: %i\n", n);
-	printf("Median of the array is %d", find_median(arr, n));
-	return (0);
-}
