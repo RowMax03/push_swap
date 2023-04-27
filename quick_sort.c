@@ -6,11 +6,56 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:28:19 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/04/26 20:10:00 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/04/27 18:48:06 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	quickSort(t_stacks *s)
+{
+	int	pivot;
+	int	i;
+
+	printf("na : %d\n", s->na);
+	pivot = (s->na / 2) + 1;
+	printf("piv : %d\n", pivot);
+	i = 0;
+	while ((s->na - 1) >= pivot)
+	{
+		if (s->a[0] == s->na - 1)
+			pb(s);
+		else
+			ra(s);
+		printf("b[0] : %d\n", s->b[0]);
+	}
+	i = 0;
+	while (i < s->nb)
+		{printf("Stack B in the Beginning: Index: %d Number: %d\n",i ,s->b[i]); i++;}
+	i = 0;
+	while (s->nb > 0)
+	{
+		pa(s);
+		ra(s);
+	}
+	pivot = (s->na / 2);
+	while (i < pivot - 1)
+	{
+		if (s->a[0] == i)
+		{
+			pb(s);
+			i++;
+		}
+		else
+			ra(s);
+	}
+	while (s->nb )
+	{
+		pa(s);
+		rra(s);
+	}
+}
+
 
 // void	quickSort(t_stacks *s, int low, int high)
 // {
@@ -66,80 +111,82 @@
 // 	}
 // }
 
-void quickSort(t_stacks *s, int low, int high) {
-  if (low >= high) return;
+
+
+// void quickSort(t_stacks *s, int low, int high) {
+//   if (low >= high) return;
   
-  int pivotIndex = partition(s, low, high);
-  quickSort(s, low, pivotIndex - 1);
-  quickSort(s, pivotIndex + 1, high);
-}
+//   int pivotIndex = partition(s, low, high);
+//   quickSort(s, low, pivotIndex - 1);
+//   quickSort(s, pivotIndex + 1, high);
+// }
 
-int partition(t_stacks *s, int low, int high) {
-  int pivotIndex = (low + high) / 2;
-  int pivot = s->a[pivotIndex];
-  printf("partition: pivotIndex Beginning= %d\n", pivotIndex);
-  // Move pivot to top of stack A
-  while (pivotIndex > 0) {
-    if (pivotIndex <= (low + high) / 2) {
-      ra(s);
-    } else {
-      rra(s);
-    }
-    pivotIndex--;
-  }
+// int partition(t_stacks *s, int low, int high) {
+//   int pivotIndex = (low + high) / 2;
+//   int pivot = s->a[pivotIndex];
+//   printf("partition: pivotIndex Beginning= %d\n", pivotIndex);
+//   // Move pivot to top of stack A
+//   while (pivotIndex > 0) {
+//     if (pivotIndex <= (low + high) / 2) {
+//       ra(s);
+//     } else {
+//       rra(s);
+//     }
+//     pivotIndex--;
+//   }
 
-  // Partition stack A
-  int i = low - 1;
-  for (int j = low; j <= high; j++) {
-    if (s->a[j] <= pivot) {
-      i++;
-      if (i != j) {
-        swap(s, i, j);
-        if (j == pivotIndex) pivotIndex = i;
-        else if (i == pivotIndex) pivotIndex = j;
-      }
-    }
-  }
+//   // Partition stack A
+//   int i = low - 1;
+//   for (int j = low; j <= high; j++) {
+//     if (s->a[j] <= pivot) {
+//       i++;
+//       if (i != j) {
+//         swap(s, i, j);
+//         if (j == pivotIndex) pivotIndex = i;
+//         else if (i == pivotIndex) pivotIndex = j;
+//       }
+//     }
+//   }
 
-  // Move pivot to correct position
-  while (pivotIndex < high) {
-    if (pivotIndex <= (low + high) / 2) {
-      ra(s);
-    } else {
-      rra(s);
-    }
-    pivotIndex++;
-  }
-  	i = 0;
-	while (i < s->na)
-		{printf("Stack A at the End of Partition: Index: %d Number: %d\n",i ,s->a[i]); i++;}
-  	i = 0;
-	while (i < s->nb)
-		{printf("Stack B at the End of Partition: Index: %d Number: %d\n",i ,s->b[i]); i++;}
-  printf("partition: returning pivotIndex=%d\n", pivotIndex);
-  return pivotIndex;
-}
+//   // Move pivot to correct position
+//   while (pivotIndex < high) {
+//     if (pivotIndex <= (low + high) / 2) {
+//       ra(s);
+//     } else {
+//       rra(s);
+//     }
+//     pivotIndex++;
+//   }
+//   	i = 0;
+// 	while (i < s->na)
+// 		{printf("Stack A at the End of Partition: Index: %d Number: %d\n",i ,s->a[i]); i++;}
+//   	i = 0;
+// 	while (i < s->nb)
+// 		{printf("Stack B at the End of Partition: Index: %d Number: %d\n",i ,s->b[i]); i++;}
+//   printf("partition: returning pivotIndex=%d\n", pivotIndex);
+//   return pivotIndex;
+// }
 
-void swap(t_stacks *s, int i, int j) {
-  if (j - i == 1) {
-    sa(s);
-  } else {
-    while (i > 0) {
-      ra(s);
-      i--;
-      j--;
-    }
-    pb(s);
-    while (j > 0) {
-      rb(s);
-      j--;
-    }
-    pa(s);
-    while (s->b[s->nb - 1] != s->a[i]) {
-      ra(s);
-    }
-    if (s->a[i + 1] < s->a[i]) {
-      sa(s);
-    }
-  }
-}
+// void swap(t_stacks *s, int i, int j) {
+//   if (j - i == 1) {
+//     sa(s);
+//   } else {
+//     while (i > 0) {
+//       ra(s);
+//       i--;
+//       j--;
+//     }
+//     pb(s);
+//     while (j > 0) {
+//       rb(s);
+//       j--;
+//     }
+//     pa(s);
+//     while (s->b[s->nb - 1] != s->a[i]) {
+//       ra(s);
+//     }
+//     if (s->a[i + 1] < s->a[i]) {
+//       sa(s);
+//     }
+//   }
+// }

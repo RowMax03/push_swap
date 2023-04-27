@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:48:36 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/04/26 18:20:08 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:32:29 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			ft_smallest(t_stacks *s);
 int			find_median(int arr[], int n);
 t_stacks	*init_stacks(int *a, int *b, int na, int nb);
 void		change_to_index(t_stacks *s);
-void		quickSort(t_stacks *s, int low, int high);
+void		quickSort(t_stacks *s);
 int			partition(t_stacks *s, int low, int high);
 int			get_index(int *arr, int size, int num);
 void 		swap(t_stacks *s, int i, int j);

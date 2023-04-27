@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:22:38 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/04/26 17:03:52 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/04/27 18:45:26 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ra(t_stacks *s)
 
 	i = 0;
 	temp = s->a[0];
-	while (i < (s->na - 1))
+	while (i < s->na)
 	{
 		s->a[i] = s->a[i + 1];
 		i++;
@@ -34,7 +34,7 @@ void	rb(t_stacks *s)
 
 	i = 0;
 	temp = s->b[0];
-	while (i < (s->nb - 1))
+	while (i < s->nb)
 	{
 		s->b[i] = s->b[i + 1];
 		i++;

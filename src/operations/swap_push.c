@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:12:41 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/04/26 20:11:01 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/04/27 18:53:31 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,15 @@ void	pa(t_stacks *s)
 	i = 0;
 	if (s->nb >= 1)
 	{
-		s->a[0] = s->b[0];
+		while (i < s->na)
+		{
+			s->a[i + 1] = s->a[i];
+			i++;
+		}
 		s->na++;
+		s->a[0] = s->b[0];
 		s->nb--;
+		i = 0;
 		while (i < s->nb)
 		{
 			s->b[i] = s->b[i + 1];
@@ -63,13 +69,21 @@ void	pa(t_stacks *s)
 void	pb(t_stacks *s)
 {
 	int	i;
+	int tmp;
 
 	i = 0;
 	if (s->na >= 1)
 	{
-		s->b[0] = s->a[0];
+		while (i < s->nb)
+		{
+			tmp = s->b[i + 1];
+			s->b[i + 1] = s->b[i];
+			i++;
+		}
 		s->nb++;
+		s->b[0] = s->a[0];
 		s->na--;
+		i = 0;
 		while (i < s->na)
 		{
 			s->a[i] = s->a[i + 1];

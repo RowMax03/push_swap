@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:42:21 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/04/26 20:01:52 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/04/27 18:41:41 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,9 +131,12 @@ int	main(int argc, char **argv)
 	while (i < s->na)
 		{printf("Stack in the Beginning: Index: %d Number: %d\n",i ,s->a[i]); i++;}
 	printf("%d\n", s->na);
-	quickSort(s, 0, s->na - 1);
+	quickSort(s);
+	pb(s);
+	pb(s);
 	i = 0;
 	while (i < s->na)
 		{printf("Stack in the End: Index: %d Number: %d\n",i ,s->a[i]); i++;}
+	printf("%d\n", s->na);
 	return (0);
 }
