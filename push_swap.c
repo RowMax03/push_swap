@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:42:21 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/04/27 18:41:41 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/04/29 19:04:18 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,44 +35,41 @@ int	ft_is_sorted_a(t_stacks *s)
 	return (1);
 }
 
-int	ft_smallest(t_stacks *s)
+int	ft_smallest(int *s, int n)
 {
 	int	i;
-	int	pos;
 	int	min;
 
 	min = 2147483647;
 	i = 0;
-	while (i < s->na)
+	while (i < n)
 	{
-		if (s->a[i] < min)
+		if (s[i] < min)
 		{
-			min = s->a[i];
-			pos = i;
+			min = s[i];
 		}
 		i++;
 	}
-	return (pos);
+	return (min);
 }
 
-// int	ft_biggest(int *b, int n)
-// {
-// 	int	i;
-// 	int	j;
-// 	int	pos;
-// 	int	max;
+int	ft_biggest(int *b, int n)
+{
+	int	i;
+	int	max;
 
-// 	max = -2147483648;
-// 	for (i = 0; i < n; i++)
-// 	{
-// 		if (b[i] > max)
-// 		{
-// 			max = b[i];
-// 			pos = i;
-// 		}
-// 	}
-// 	return (pos);
-// }
+	i = 0;
+	max = -2147483648;
+	while (i < n)
+	{
+		if (b[i] > max)
+		{
+			max = b[i];
+		}
+		i++;
+	}
+	return (max);
+}
 
 // void	push_swap(int *a, int *b, int na, int nb)
 // {
@@ -101,6 +98,15 @@ int	ft_smallest(t_stacks *s)
 // 			pa(a, b, &na, &nb);
 // 	}
 // }
+static void	algo_select(t_stacks *s)
+{
+	if (s->na <= 3)
+		sort_3(s);
+	else if (s->na <= 5)
+		sort_5(s);
+	else
+		quickSort(s);
+}
 
 int	main(int argc, char **argv)
 {
@@ -108,7 +114,7 @@ int	main(int argc, char **argv)
 	int			*b;
 	int			na;
 	int			nb;
-	int			i;
+	//int			i;
 	t_stacks	*s;
 
 	s = malloc(sizeof(t_stacks));
@@ -127,16 +133,14 @@ int	main(int argc, char **argv)
 	}
 	s = init_stacks(a, b, na, nb);
 	change_to_index(s);
-	i = 0;
-	while (i < s->na)
-		{printf("Stack in the Beginning: Index: %d Number: %d\n",i ,s->a[i]); i++;}
-	printf("%d\n", s->na);
-	quickSort(s);
-	pb(s);
-	pb(s);
-	i = 0;
-	while (i < s->na)
-		{printf("Stack in the End: Index: %d Number: %d\n",i ,s->a[i]); i++;}
-	printf("%d\n", s->na);
+	//i = 0;
+	//while (i < s->na)
+	//	{printf("Stack in the Beginning: Index: %d Number: %d\n",i ,s->a[i]); i++;}
+	//printf("%d\n", s->na);
+	algo_select(s);
+	//i = 0;
+	//while (i < s->na)
+	//	{printf("Stack in the End: Index: %d Number: %d\n",i ,s->a[i]); i++;}
+	//printf("%d\n", s->na);
 	return (0);
 }

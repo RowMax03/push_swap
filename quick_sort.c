@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:28:19 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/04/27 18:48:06 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:51:08 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,36 @@ void	quickSort(t_stacks *s)
 	int	pivot;
 	int	i;
 
-	printf("na : %d\n", s->na);
-	pivot = (s->na / 2) + 1;
-	printf("piv : %d\n", pivot);
+	//printf("na : %d\n", s->na);
+	//pivot = (s->na / 2) + 1;
+	pivot = s->na - 1;
+	//printf("piv : %d\n", pivot);
 	i = 0;
-	while ((s->na - 1) >= pivot)
-	{
-		if (s->a[0] == s->na - 1)
-			pb(s);
-		else
-			ra(s);
-		printf("b[0] : %d\n", s->b[0]);
-	}
-	i = 0;
-	while (i < s->nb)
-		{printf("Stack B in the Beginning: Index: %d Number: %d\n",i ,s->b[i]); i++;}
-	i = 0;
-	while (s->nb > 0)
-	{
-		pa(s);
-		ra(s);
-	}
-	pivot = (s->na / 2);
-	while (i < pivot - 1)
+	//while ((s->na - 1) >= pivot)
+	//{
+	//	if (s->a[0] == s->na - 1)
+	//		pb(s);
+	//	else
+	//		rotation_decide(s, s->na - 1);
+	//	//printf("b[0] : %d\n", s->b[0]);
+	//}
+	//i = 0;
+	//while (i < s->nb)
+	//	{printf("Stack B in the Beginning: Index: %d Number: %d\n",i ,s->b[i]); i++;}
+	//printf(" A size: %d\n",s->na);
+	//printf(" B size: %d\n",s->nb);
+	//i = 0;
+	//while (s->nb != 0)
+	//{
+	//	pa(s);
+	//	ra(s);
+	//}
+	//return;
+	//printf(" A size: %d\n",s->na);
+	//printf(" B size: %d\n",s->nb);
+	//pivot = (s->na / 2);
+	//printf(" Piv size: %d\n",pivot);
+	while (i <= pivot)
 	{
 		if (s->a[0] == i)
 		{
@@ -47,13 +54,16 @@ void	quickSort(t_stacks *s)
 			i++;
 		}
 		else
-			ra(s);
+			rotation_decide(s, i);
 	}
-	while (s->nb )
+	//printf(" A size: %d\n",s->na);
+	//printf(" B size: %d\n",s->nb);
+	while (s->nb != 0)
 	{
 		pa(s);
-		rra(s);
 	}
+	//printf(" A size: %d\n",s->na);
+	//printf(" B size: %d\n",s->nb);
 }
 
 
@@ -115,7 +125,7 @@ void	quickSort(t_stacks *s)
 
 // void quickSort(t_stacks *s, int low, int high) {
 //   if (low >= high) return;
-  
+
 //   int pivotIndex = partition(s, low, high);
 //   quickSort(s, low, pivotIndex - 1);
 //   quickSort(s, pivotIndex + 1, high);

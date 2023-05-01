@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap_push.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:12:41 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/04/27 18:53:31 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/04/28 16:16:01 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	sa(t_stacks *s)
 		s->a[0] = s->a[1];
 		s->a[1] = temp;
 	}
+	ft_printf("sa\n");
 }
 
 void	sb(t_stacks *s)
@@ -34,6 +35,7 @@ void	sb(t_stacks *s)
 		s->b[0] = s->b[1];
 		s->b[1] = temp;
 	}
+	ft_printf("sb\n");
 }
 
 void	ss(t_stacks *s)
@@ -46,13 +48,13 @@ void	pa(t_stacks *s)
 {
 	int	i;
 
-	i = 0;
+	i = s->na - 1;
 	if (s->nb >= 1)
 	{
-		while (i < s->na)
+		while (i >= 0)
 		{
 			s->a[i + 1] = s->a[i];
-			i++;
+			i--;
 		}
 		s->na++;
 		s->a[0] = s->b[0];
@@ -64,21 +66,20 @@ void	pa(t_stacks *s)
 			i++;
 		}
 	}
+	ft_printf("pa\n");
 }
 
 void	pb(t_stacks *s)
 {
 	int	i;
-	int tmp;
 
-	i = 0;
+	i = s->nb - 1;
 	if (s->na >= 1)
 	{
-		while (i < s->nb)
+		while (i >= 0)
 		{
-			tmp = s->b[i + 1];
 			s->b[i + 1] = s->b[i];
-			i++;
+			i--;
 		}
 		s->nb++;
 		s->b[0] = s->a[0];
@@ -90,4 +91,5 @@ void	pb(t_stacks *s)
 			i++;
 		}
 	}
+	ft_printf("pb\n");
 }

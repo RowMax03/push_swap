@@ -1,6 +1,6 @@
 #  |  |  ___ \    \  |         |
-#  |  |     ) |  |\/ |   _  |  |  /   _ 
-# ___ __|  __/   |   |  (   |    <    __/ 
+#  |  |     ) |  |\/ |   _  |  |  /   _
+# ___ __|  __/   |   |  (   |    <    __/
 #    _|  _____| _|  _| \__,_| _|\_\ \___|
 #                              by jcluzet
 ################################################################################
@@ -25,8 +25,9 @@ SRCS        :=            push_wap.c \
                           src/index.c \
                           src/operations/get_rotated.c \
                           src/operations/swap_push.c \
-                          src/sort_3.c
-                          
+                          src/sort_3.c \
+						  src/rotate_direction.c
+
 OBJS =		$(SRCS:.c=.o)
 
 LIBFT =	./libft/libft.a

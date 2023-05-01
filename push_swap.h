@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:48:36 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/04/27 17:32:29 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/04/29 18:54:03 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 #include "./libft/libft.h"
-#include "./includes/libft/libft.h"
+//#include "./includes/libft/libft.h"
 
 typedef struct t_stacks {
 	int	*a;
@@ -23,7 +23,7 @@ typedef struct t_stacks {
 	int	nb;
 }t_stacks;
 
-int	main(int argc, char **argv);
+int			main(int argc, char **argv);
 void		sa(t_stacks *s);
 void		sb(t_stacks *s);
 void		ss(t_stacks *s);
@@ -35,8 +35,12 @@ void		rr(t_stacks *s);
 void		rra(t_stacks *s);
 void		rrb(t_stacks *s);
 void		rrr(t_stacks *s);
+void		sort_3(t_stacks *s);
+void		sort_5(t_stacks *s);
+void		rotation_decide(t_stacks *s, int num);
 int			ft_is_sorted_a(t_stacks *s);
-int			ft_smallest(t_stacks *s);
+int			ft_smallest(int *s, int n);
+int			ft_biggest(int *b, int n);
 int			find_median(int arr[], int n);
 t_stacks	*init_stacks(int *a, int *b, int na, int nb);
 void		change_to_index(t_stacks *s);
