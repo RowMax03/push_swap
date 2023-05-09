@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:42:21 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/03 18:48:31 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/09 18:20:06 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,33 +114,33 @@ int	main(int argc, char **argv)
 	int			*b;
 	int			na;
 	int			nb;
-	// int			i;
 	t_stacks	*s;
 
-	s = malloc(sizeof(t_stacks));
+	if (argv++ && argc == 2)
+		argv = ft_split(argv[0], ' ');
+	if (input_check(argv))
+	{
+		ft_printf("Error\n");
+		return (-1);
+	}
 	a = malloc(sizeof(int) * argc);
 	b = malloc(sizeof(int) * argc);
 	if (!a || !b)
 		return (free(a), free(b), -1);
-	if (argc < 2)
-		return (0);
 	na = 0;
 	nb = 0;
 	while ((na + 1) < argc)
 	{
-		a[na] = atoi(argv[na + 1]);
+		a[na] = atoi(argv[na]);
 		na++;
+	}
+	if (check_duplicates(a, na))
+	{
+		ft_printf("Error\n");
+		return (free(a), free(b), -1);
 	}
 	s = init_stacks(a, b, na, nb);
 	change_to_index(s);
-	// i = 0;
-	// while (i < s->na)
-	// 	{printf("Stack in the Beginning: Index: %d Number: %d\n",i ,s->a[i]); i++;}
-	// printf("%d\n", s->na);
 	algo_select(s);
-	// i = 0;
-	// while (i < s->na)
-	// 	{printf("Stack in the End: Index: %d Number: %d\n",i ,s->a[i]); i++;}
-	// printf("%d\n", s->na);
-	return (0);
+	return (free(a), free(b), free(s), 0);
 }

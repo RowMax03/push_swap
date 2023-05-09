@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:28:19 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/03 18:43:53 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/09 15:31:13 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ void	insertion_sort(t_stacks *s, int *stacks, int num_stacks)
 		{
 			tmp = num_getter_range(s, stacks[i], stacks[i + 1]);
 			rotation_decide(s, tmp);
-			rotation_decide_b(s, closest_high(s->b, s->nb, tmp));
+			// if (((tmp > ft_biggest(s->b, s->nb)) || (tmp < ft_smallest(s->b, s->nb))) && s->nb)
+			// 	rotation_decide_b(s, ft_smallest(s->b, s->nb));
 			pb(s);
 			j++;
 		}

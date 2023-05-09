@@ -6,14 +6,14 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:48:36 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/03 17:28:25 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/09 16:26:34 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "./libft/libft.h"
+#include "./includes/libft/libft.h"
 //#include "./includes/libft/libft.h"
 
 typedef struct t_stacks {
@@ -53,6 +53,7 @@ int			get_index(int *arr, int size, int num);
 void 		swap(t_stacks *s, int i, int j);
 int			num_getter_range(t_stacks *s, int low, int high);
 int			closest_high(int *s, int n, int num);
-
+int			input_check(char **argv);
+int			check_duplicates(int *s, int n);
 
 #endif
