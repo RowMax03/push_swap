@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_direction.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 15:57:04 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/04/29 21:40:08 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:43:15 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-static int	closest_high(int *s, int n, int num)
+int	closest_high(int *s, int n, int num)
 {
 	int	i;
 	int	closest_high;
@@ -76,6 +76,35 @@ void	rotation_decide(t_stacks *s, int num)
 		while (s->na - i)
 		{
 			rra(s);
+			i++;
+		}
+	}
+}
+
+void	rotation_decide_b(t_stacks *s, int num)
+{
+	int	i;
+
+	i = 0;
+	if (num == -1)
+		return ;
+	while (num != s->b[i])
+		i++;
+	if (i == 0)
+		return ;
+	if (i <= s->nb / 2)
+	{
+		while (i)
+		{
+			rb(s);
+			i--;
+		}
+	}
+	else
+	{
+		while (s->nb - i >= 0)
+		{
+			rrb(s);
 			i++;
 		}
 	}

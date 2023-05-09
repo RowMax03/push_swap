@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:42:21 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/04/29 19:04:18 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/03 18:48:31 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ static void	algo_select(t_stacks *s)
 	else if (s->na <= 5)
 		sort_5(s);
 	else
-		quickSort(s);
+		make_ranges(s);
 }
 
 int	main(int argc, char **argv)
@@ -114,7 +114,7 @@ int	main(int argc, char **argv)
 	int			*b;
 	int			na;
 	int			nb;
-	//int			i;
+	// int			i;
 	t_stacks	*s;
 
 	s = malloc(sizeof(t_stacks));
@@ -133,14 +133,14 @@ int	main(int argc, char **argv)
 	}
 	s = init_stacks(a, b, na, nb);
 	change_to_index(s);
-	//i = 0;
-	//while (i < s->na)
-	//	{printf("Stack in the Beginning: Index: %d Number: %d\n",i ,s->a[i]); i++;}
-	//printf("%d\n", s->na);
+	// i = 0;
+	// while (i < s->na)
+	// 	{printf("Stack in the Beginning: Index: %d Number: %d\n",i ,s->a[i]); i++;}
+	// printf("%d\n", s->na);
 	algo_select(s);
-	//i = 0;
-	//while (i < s->na)
-	//	{printf("Stack in the End: Index: %d Number: %d\n",i ,s->a[i]); i++;}
-	//printf("%d\n", s->na);
+	// i = 0;
+	// while (i < s->na)
+	// 	{printf("Stack in the End: Index: %d Number: %d\n",i ,s->a[i]); i++;}
+	// printf("%d\n", s->na);
 	return (0);
 }

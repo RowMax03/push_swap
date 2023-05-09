@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:48:36 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/04/29 18:54:03 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/03 17:28:25 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,9 @@ void		rrr(t_stacks *s);
 void		sort_3(t_stacks *s);
 void		sort_5(t_stacks *s);
 void		rotation_decide(t_stacks *s, int num);
+void		rotation_decide_b(t_stacks *s, int num);
+void		make_ranges(t_stacks *s);
+void		insertion_sort(t_stacks *s, int *stacks, int num_stacks);
 int			ft_is_sorted_a(t_stacks *s);
 int			ft_smallest(int *s, int n);
 int			ft_biggest(int *b, int n);
@@ -48,6 +51,8 @@ void		quickSort(t_stacks *s);
 int			partition(t_stacks *s, int low, int high);
 int			get_index(int *arr, int size, int num);
 void 		swap(t_stacks *s, int i, int j);
+int			num_getter_range(t_stacks *s, int low, int high);
+int			closest_high(int *s, int n, int num);
 
 
 #endif
