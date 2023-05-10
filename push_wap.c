@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_wap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:28:43 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/10 23:33:18 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/11 00:53:56 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,6 @@ char	**rm_space(char **argv, int i, int count)
 	}
 	return (result);
 }
-
-
-
-
 
 int	arg_count(char **argv)
 {
