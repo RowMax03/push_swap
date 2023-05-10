@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:28:19 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/10 17:22:10 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/10 20:24:22 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,8 @@ void	insertion_sort(t_stacks *s, int *stacks, int num_stacks)
 static	void	quick_sort(t_stacks *s)
 {
 	int	pivot;
-	int	i;
 
 	pivot = s->nb - 1;
-	i = 0;
 	while (s->nb != 0)
 	{
 		if (s->b[0] == pivot)

@@ -3,14 +3,68 @@
 /*                                                        :::      ::::::::   */
 /*   push_wap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:28:43 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/10 18:01:50 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/10 23:33:18 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	wordcount(const char *s, char c)
+{
+	int		i;
+	int		wrd;
+
+	wrd = 0;
+	i = 0;
+	while (*s)
+	{
+		if (*s != c && wrd == 0)
+		{
+			wrd = 1;
+			i++;
+		}
+		if (*s == c)
+			wrd = 0;
+		s++;
+	}
+	return (i);
+}
+
+char	**rm_space(char **argv, int i, int count)
+{
+	int		j;
+	int		pos;
+	char	**result;
+	char	**temp;
+
+	count = 0;
+	i = 0;
+	while (argv[i])
+		count += wordcount(argv[i++], ' ');
+	result = (char **)malloc(sizeof(char *) * (count + 1));
+	if (result == NULL)
+		return (NULL);
+	result[count] = NULL;
+	pos = 0;
+	i = 0;
+	while (argv[i])
+	{
+		temp = ft_split(argv[i], ' ');
+		j = 0;
+		while (temp[j])
+			result[pos++] = temp[j++];
+		free(temp);
+		i++;
+	}
+	return (result);
+}
+
+
+
+
 
 int	arg_count(char **argv)
 {
@@ -20,22 +74,6 @@ int	arg_count(char **argv)
 	while (argv[i])
 		i++;
 	return (i);
-}
-
-int	*alloc_a(char **argv)
-{
-	int	*a;
-
-	a = malloc(sizeof(int) * (arg_count(argv) + 1));
-	return (a);
-}
-
-int	*alloc_b(char **argv)
-{
-	int	*b;
-
-	b = malloc(sizeof(int) * (arg_count(argv) + 1));
-	return (b);
 }
 
 t_stacks	*init_stacks(int *a, int *b, int na, int nb)

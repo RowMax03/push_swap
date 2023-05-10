@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:42:21 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/10 19:28:06 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/10 23:31:55 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,18 +89,18 @@ int	main(int argc, char **argv)
 	int			nb;
 	t_stacks	*s;
 
-	if (argv++ && argc == 2)
-		argv = ft_split(argv[0], ' ');
+	argv++;
+	argv = rm_space(argv, 0, 0);
 	if (input_check(argv) || argc < 2)
 		return (ft_putstr_fd("Error\n", 2), -1);
-	a = alloc_a(argv);
-	b = alloc_b(argv);
+	a = malloc(sizeof(int) * (arg_count(argv) + 1));
+	b = malloc(sizeof(int) * (arg_count(argv) + 1));
 	if (!a || !b)
 		return (ft_putstr_fd("Error\n", 2), free(a), free(b), -1);
 	na = -1;
 	nb = 0;
 	while ((++na) < arg_count(argv))
-		a[na] = atoi(argv[na]);
+		a[na] = ft_atoi_l(argv[na]);
 	if (check_duplicates(a, na) || arg_count(argv) < 2)
 		return (ft_putstr_fd("Error\n", 2), free(a), free(b), -1);
 	s = init_stacks(a, b, na, nb);
