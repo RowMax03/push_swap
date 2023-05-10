@@ -6,15 +6,14 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:48:36 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/09 16:26:34 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:28:31 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include "./includes/libft/libft.h"
-//#include "./includes/libft/libft.h"
+# include "./includes/libft/libft.h"
 
 typedef struct t_stacks {
 	int	*a;
@@ -34,7 +33,6 @@ void		rb(t_stacks *s);
 void		rr(t_stacks *s);
 void		rra(t_stacks *s);
 void		rrb(t_stacks *s);
-void		rrr(t_stacks *s);
 void		sort_3(t_stacks *s);
 void		sort_5(t_stacks *s);
 void		rotation_decide(t_stacks *s, int num);
@@ -47,13 +45,15 @@ int			ft_biggest(int *b, int n);
 int			find_median(int arr[], int n);
 t_stacks	*init_stacks(int *a, int *b, int na, int nb);
 void		change_to_index(t_stacks *s);
-void		quickSort(t_stacks *s);
 int			partition(t_stacks *s, int low, int high);
 int			get_index(int *arr, int size, int num);
-void 		swap(t_stacks *s, int i, int j);
+void		swap(t_stacks *s, int i, int j);
 int			num_getter_range(t_stacks *s, int low, int high);
 int			closest_high(int *s, int n, int num);
 int			input_check(char **argv);
 int			check_duplicates(int *s, int n);
+int			*alloc_a(char **argv);
+int			*alloc_b(char **argv);
+int			arg_count(char **argv);
 
 #endif

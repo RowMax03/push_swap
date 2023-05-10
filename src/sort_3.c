@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 09:28:41 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/04/29 18:56:51 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/10 17:33:03 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,9 @@ void	sort_3(t_stacks *s)
 
 void	sort_5(t_stacks *s)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	pb(s);
 	pb(s);
 	sort_3(s);

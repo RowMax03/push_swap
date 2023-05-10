@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:42:21 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/09 18:20:06 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:28:06 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,33 +71,6 @@ int	ft_biggest(int *b, int n)
 	return (max);
 }
 
-// void	push_swap(int *a, int *b, int na, int nb)
-// {
-// 	int i, j;
-
-// 	while (!ft_is_sorted(a, na))
-// 	{
-// 		i = ft_smallest(a, na);
-// 		if (i > na / 2)
-// 		{
-// 			while (i--)
-// 				rra(a, na--);
-// 			pb(a, b, &na, &nb);
-// 		}
-// 		else
-// 		{
-// 			while (i--)
-// 				ra(a, na--);
-// 			pb(a, b, &na, &nb);
-// 		}
-// 	}
-// 	while (nb)
-// 	{
-// 		i = ft_biggest(b, nb);
-// 		while (i--)
-// 			pa(a, b, &na, &nb);
-// 	}
-// }
 static void	algo_select(t_stacks *s)
 {
 	if (s->na <= 3)
@@ -118,27 +91,18 @@ int	main(int argc, char **argv)
 
 	if (argv++ && argc == 2)
 		argv = ft_split(argv[0], ' ');
-	if (input_check(argv))
-	{
-		ft_printf("Error\n");
-		return (-1);
-	}
-	a = malloc(sizeof(int) * argc);
-	b = malloc(sizeof(int) * argc);
+	if (input_check(argv) || argc < 2)
+		return (ft_putstr_fd("Error\n", 2), -1);
+	a = alloc_a(argv);
+	b = alloc_b(argv);
 	if (!a || !b)
-		return (free(a), free(b), -1);
-	na = 0;
+		return (ft_putstr_fd("Error\n", 2), free(a), free(b), -1);
+	na = -1;
 	nb = 0;
-	while ((na + 1) < argc)
-	{
+	while ((++na) < arg_count(argv))
 		a[na] = atoi(argv[na]);
-		na++;
-	}
-	if (check_duplicates(a, na))
-	{
-		ft_printf("Error\n");
-		return (free(a), free(b), -1);
-	}
+	if (check_duplicates(a, na) || arg_count(argv) < 2)
+		return (ft_putstr_fd("Error\n", 2), free(a), free(b), -1);
 	s = init_stacks(a, b, na, nb);
 	change_to_index(s);
 	algo_select(s);

@@ -6,11 +6,13 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:28:19 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/09 15:31:13 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/10 17:22:10 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static	void	quick_sort(t_stacks *s);
 
 void	make_ranges(t_stacks *s)
 {
@@ -40,7 +42,7 @@ void	insertion_sort(t_stacks *s, int *stacks, int num_stacks)
 {
 	int	i;
 	int	j;
-	int tmp;
+	int	tmp;
 
 	i = 0;
 	while (i < num_stacks && s->na)
@@ -50,18 +52,16 @@ void	insertion_sort(t_stacks *s, int *stacks, int num_stacks)
 		{
 			tmp = num_getter_range(s, stacks[i], stacks[i + 1]);
 			rotation_decide(s, tmp);
-			// if (((tmp > ft_biggest(s->b, s->nb)) || (tmp < ft_smallest(s->b, s->nb))) && s->nb)
-			// 	rotation_decide_b(s, ft_smallest(s->b, s->nb));
-			pb(s);
+			if (tmp >= stacks[i] && tmp <= stacks[i + 1])
+				pb(s);
 			j++;
 		}
 		i++;
 	}
-	quickSort(s);
+	quick_sort(s);
 }
 
-
-void	quickSort(t_stacks *s)
+static	void	quick_sort(t_stacks *s)
 {
 	int	pivot;
 	int	i;
@@ -78,8 +78,4 @@ void	quickSort(t_stacks *s)
 		else
 			rotation_decide_b(s, pivot);
 	}
-	//printf(" A size: %d\n",s->na);
-	//printf(" B size: %d\n",s->nb);
-	//printf(" A size: %d\n",s->na);
-	//printf(" B size: %d\n",s->nb);
 }

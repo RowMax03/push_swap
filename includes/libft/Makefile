@@ -6,7 +6,7 @@
 #    By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 08:11:09 by mreidenb          #+#    #+#              #
-#    Updated: 2023/05/09 16:58:15 by mreidenb         ###   ########.fr        #
+#    Updated: 2023/05/10 16:07:18 by mreidenb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ NAME	= libft.a
 MAIN	= isalpha isdigit isalnum isascii isprint strlen memset bzero memcpy\
 		memmove strlcpy strlcat toupper tolower strchr strrchr strncmp memchr\
 		memcmp strnstr atoi calloc strdup substr strjoin strtrim split itoa\
-		strmapi striteri putchar_fd putstr_fd putendl_fd putnbr_fd printf/ft_printf
+		strmapi striteri putchar_fd putstr_fd putendl_fd putnbr_fd printf/ft_printf\
+		atoi_l
 BONUS	= lstnew lstadd_front lstsize lstlast lstadd_back lstdelone lstclear\
 		lstiter lstmap
 

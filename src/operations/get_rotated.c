@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_rotated.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:22:38 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/04/28 16:16:52 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/10 17:18:50 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,4 @@ void	rrb(t_stacks *s)
 	}
 	s->b[0] = temp;
 	ft_printf("rrb\n");
-}
-
-void	rrr(t_stacks *s)
-{
-	rra(s);
-	rrb(s);
 }

@@ -19,7 +19,6 @@ RM =		rm -rf
 ################################################################################
 
 SRCS        :=            push_wap.c \
-                          find_median.c \
                           push_swap.c \
                           quick_sort.c \
                           src/index.c \

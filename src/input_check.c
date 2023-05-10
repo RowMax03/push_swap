@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:40:31 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/09 18:18:45 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/10 19:26:47 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ static int	check_blanks(char **argv);
 int	input_check(char **argv)
 {
 	if (!argv)
-		return (printf("v"),-1);
+		return (-1);
 	if (check_blanks(argv))
-		return (printf("b"),-1);
+		return (-1);
 	if (check_numbers(argv))
-		return (printf("n"),-1);
+		return (-1);
 	if (check_if_int(argv))
-		return (printf("i"),-1);
+		return (-1);
 	return (0);
 }
 
@@ -56,8 +56,9 @@ static int	check_numbers(char **argv)
 		y = 0;
 		while (argv[i] && argv[i][y])
 		{
-			if (!ft_isdigit(argv[i][y]) && argv[i][y] != '-')
-				return (printf("%c%d%d", argv[i][y], i , y),-1);
+			if (!ft_isdigit(argv[i][y]) && (argv[i][y] != '-'
+			|| argv[i][y] != '+') && !ft_isdigit(argv[i][y + 1]))
+				return (-1);
 			y++;
 		}
 		i++;
@@ -78,7 +79,7 @@ static int	check_if_int(char **argv)
 	{	
 		if (ft_strlen(argv[i]) > 11)
 			return (-1);
-		if (ft_atoi(argv[i]) > max_int || ft_atoi(argv[i]) < min_int)
+		if (ft_atoi_l(argv[i]) > max_int || ft_atoi_l(argv[i]) < min_int)
 			return (-1);
 		i++;
 	}
