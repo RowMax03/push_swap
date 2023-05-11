@@ -3,23 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:42:21 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/10 23:31:55 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/11 01:03:16 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "push_swap.h"
-
-#define MAX_SIZE 100
-
-/*
-** push_swap.c
-** 42 School Style
-*/
 
 int	ft_is_sorted_a(t_stacks *s)
 {
@@ -105,6 +98,7 @@ int	main(int argc, char **argv)
 		return (ft_putstr_fd("Error\n", 2), free(a), free(b), -1);
 	s = init_stacks(a, b, na, nb);
 	change_to_index(s);
-	algo_select(s);
+	if (!ft_is_sorted_a(s))
+		algo_select(s);
 	return (free(a), free(b), free(s), 0);
 }
