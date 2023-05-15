@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:42:21 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/11 01:03:16 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/11 03:07:15 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,16 @@ int	ft_biggest(int *b, int n)
 
 static void	algo_select(t_stacks *s)
 {
-	if (s->na <= 3)
-		sort_3(s);
-	else if (s->na <= 5)
-		sort_5(s);
-	else
-		make_ranges(s);
+	if (!ft_is_sorted_a(s))
+	{
+		if (s->na <= 3)
+			sort_3(s);
+		else if (s->na <= 5)
+			sort_5(s);
+		else
+			make_ranges(s);
+	}
+	return ;
 }
 
 int	main(int argc, char **argv)
@@ -84,21 +88,21 @@ int	main(int argc, char **argv)
 
 	argv++;
 	argv = rm_space(argv, 0, 0);
-	if (input_check(argv) || argc < 2)
-		return (ft_putstr_fd("Error\n", 2), -1);
+	if (input_check(argv))
+		return (ft_putstr_fd("Error\n", 2), free_str_array(argv), -1);
 	a = malloc(sizeof(int) * (arg_count(argv) + 1));
 	b = malloc(sizeof(int) * (arg_count(argv) + 1));
 	if (!a || !b)
 		return (ft_putstr_fd("Error\n", 2), free(a), free(b), -1);
 	na = -1;
-	nb = 0;
+	nb = argc - argc;
 	while ((++na) < arg_count(argv))
 		a[na] = ft_atoi_l(argv[na]);
-	if (check_duplicates(a, na) || arg_count(argv) < 2)
+	free_str_array(argv);
+	if (check_duplicates(a, na))
 		return (ft_putstr_fd("Error\n", 2), free(a), free(b), -1);
 	s = init_stacks(a, b, na, nb);
 	change_to_index(s);
-	if (!ft_is_sorted_a(s))
-		algo_select(s);
+	algo_select(s);
 	return (free(a), free(b), free(s), 0);
 }

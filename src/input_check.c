@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input_check.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:40:31 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/11 00:53:35 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/11 03:09:22 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ static int	check_numbers(char **argv)
 			&& argv[i][y] != '+')
 			|| (argv[i][y + 1] == '-' && argv[i][y + 1] == '+')))
 				return (-1);
-			if (argv[i][y] == '-' && !ft_isdigit(argv[i][y + 1]))
+			if ((argv[i][y] == '-' || argv[i][y] == '+')
+				&& !ft_isdigit(argv[i][y + 1]))
 				return (-1);
 			y++;
 		}
@@ -79,7 +80,7 @@ static int	check_if_int(char **argv)
 	max_int = 2147483647;
 	min_int = -2147483648;
 	while (argv[i])
-	{	
+	{
 		if (ft_strlen(argv[i]) > 11)
 			return (-1);
 		if (ft_atoi_l(argv[i]) > max_int || ft_atoi_l(argv[i]) < min_int)

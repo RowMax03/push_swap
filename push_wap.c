@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   push_wap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 16:28:43 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/11 00:53:56 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/11 02:53:45 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_str_array(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
+}
 
 static int	wordcount(const char *s, char c)
 {
