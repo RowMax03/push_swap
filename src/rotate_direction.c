@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 15:57:04 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/03 18:43:15 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/21 20:40:37 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,11 @@ void	rotation_decide_b(t_stacks *s, int num)
 	int	i;
 
 	i = 0;
+	if (s->nb && s->b[0] == num)
+	{
+		pa(s);
+		return ;
+	}
 	if (num == -1)
 		return ;
 	while (num != s->b[i])
@@ -94,18 +99,12 @@ void	rotation_decide_b(t_stacks *s, int num)
 		return ;
 	if (i <= s->nb / 2)
 	{
-		while (i)
-		{
+		while (i-- >= 1)
 			rb(s);
-			i--;
-		}
 	}
 	else
 	{
-		while (s->nb - i >= 0)
-		{
+		while (s->nb - i++ >= 1)
 			rrb(s);
-			i++;
-		}
 	}
 }

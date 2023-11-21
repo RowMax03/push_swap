@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 16:41:58 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/11/21 17:37:20 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/21 20:51:26 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,4 @@ void	k_sort(t_stacks *s)
 	}
 	quick_sort(s);
 }
+

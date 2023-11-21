@@ -55,8 +55,10 @@ BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 BONUS_NAME = bonus_checker
 
-bonus: $(LIBFT) $(BONUS_OBJS)
+$(BONUS_NAME): $(LIBFT) $(BONUS_OBJS)
 	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o $(BONUS_NAME)
+
+bonus: $(BONUS_NAME)
 
 all :		$(NAME)
 

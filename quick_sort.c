@@ -6,12 +6,11 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:28:19 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/11/20 16:56:37 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/21 20:44:34 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	make_ranges(t_stacks *s)
 {
