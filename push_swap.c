@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:42:21 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/11/20 17:18:44 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:48:37 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,56 +20,6 @@
 ** push_swap.c
 ** 42 School Style
 */
-
-int	ft_is_sorted_a(t_stacks *s)
-{
-	int	i;
-
-	i = 0;
-	while (i < s->na - 1)
-	{
-		if (s->a[i] > s->a[i + 1])
-			return (0);
-		i++;
-	}
-	return (1);
-}
-
-int	ft_smallest(int *s, int n)
-{
-	int	i;
-	int	min;
-
-	min = 2147483647;
-	i = 0;
-	while (i < n)
-	{
-		if (s[i] < min)
-		{
-			min = s[i];
-		}
-		i++;
-	}
-	return (min);
-}
-
-int	ft_biggest(int *b, int n)
-{
-	int	i;
-	int	max;
-
-	i = 0;
-	max = -2147483648;
-	while (i < n)
-	{
-		if (b[i] > max)
-		{
-			max = b[i];
-		}
-		i++;
-	}
-	return (max);
-}
 
 static void	algo_select(t_stacks *s)
 {

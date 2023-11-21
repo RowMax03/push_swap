@@ -6,11 +6,61 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 09:28:41 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/10 17:33:03 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:48:48 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	ft_is_sorted_a(t_stacks *s)
+{
+	int	i;
+
+	i = 0;
+	while (i < s->na - 1)
+	{
+		if (s->a[i] > s->a[i + 1])
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	ft_smallest(int *s, int n)
+{
+	int	i;
+	int	min;
+
+	min = 2147483647;
+	i = 0;
+	while (i < n)
+	{
+		if (s[i] < min)
+		{
+			min = s[i];
+		}
+		i++;
+	}
+	return (min);
+}
+
+int	ft_biggest(int *b, int n)
+{
+	int	i;
+	int	max;
+
+	i = 0;
+	max = -2147483648;
+	while (i < n)
+	{
+		if (b[i] > max)
+		{
+			max = b[i];
+		}
+		i++;
+	}
+	return (max);
+}
 
 //sorting for a stack of 3 2op max
 void	sort_3(t_stacks *s)

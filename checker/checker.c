@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 22:56:06 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/11/21 01:09:46 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:28:19 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ static int	do_operations(t_stacks *s, char *operation)
 		b_ra(s);
 	else if (!ft_strncmp(operation, "rb", 2))
 		b_rb(s);
-	else if (!ft_strncmp(operation, "rr", 2))
-		b_rr(s);
+	else if (!ft_strncmp(operation, "rrr", 3))
+		b_rrr(s);
 	else if (!ft_strncmp(operation, "rra", 3))
 		b_rra(s);
 	else if (!ft_strncmp(operation, "rrb", 3))
 		b_rrb(s);
-	else if (!ft_strncmp(operation, "rrr", 3))
-		b_rrr(s);
+	else if (!ft_strncmp(operation, "rr", 2))
+		b_rr(s);
 	return (free(operation), 1);
 }
 
@@ -87,4 +87,10 @@ int	main(int argc, char **argv)
 	change_to_index(s);
 	checker(s);
 	return (free(a), free(b), free(s), 0);
+}
+
+void	b_rrr(t_stacks *s)
+{
+	b_rra(s);
+	b_rrb(s);
 }

@@ -6,13 +6,13 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 16:41:58 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/11/20 20:53:24 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:37:20 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int sqrt(int num)
+static int ft_sqrt(int num)
 {
 	int	res;
 
@@ -28,7 +28,7 @@ void	k_sort(t_stacks *s)
 	int i;
 
 	i = 1;
-	range = sqrt(s->na) * 14 / 10;
+	range = ft_sqrt(s->na) * 14 / 10;
 	ft_printf("");
 	while (s->na)
 	{
