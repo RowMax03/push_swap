@@ -1,8 +1,3 @@
-#  |  |  ___ \    \  |         |
-#  |  |     ) |  |\/ |   _  |  |  /   _
-# ___ __|  __/   |   |  (   |    <    __/
-#    _|  _____| _|  _| \__,_| _|\_\ \___|
-#                              by jcluzet
 ################################################################################
 #                                     CONFIG                                   #
 ################################################################################
@@ -26,7 +21,8 @@ SRCS        :=            push_wap.c \
                           src/operations/swap_push.c \
                           src/sort_3.c \
 						  src/rotate_direction.c \
-						  src/input_check.c
+						  src/input_check.c \
+						  keta_sort.c
 
 OBJS =		$(SRCS:.c=.o)
 
@@ -38,6 +34,18 @@ $(NAME):	$(LIBFT) $(OBJS)
 $(LIBFT):
 			@cd includes/libft && make && make clean
 
+BONUS_SRCS = checker/checker.c \
+			 checker/operations/get_rotated.c \
+			 checker/operations/swap_push.c \
+			 # Add other source files as needed
+
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+
+BONUS_NAME = checker
+
+bonus: $(LIBFT) $(BONUS_OBJS)
+	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o $(BONUS_NAME)
+
 all :		$(NAME)
 
 clean :
@@ -45,7 +53,7 @@ clean :
 
 fclean :	clean
 			@$(RM) $(NAME)
-			@$(RM) ./libft
+			@cd	includes/libft && make fclean
 
 re :		fclean all
 

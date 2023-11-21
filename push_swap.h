@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:48:36 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/10 23:31:38 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/20 16:55:31 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int			check_duplicates(int *s, int n);
 int			*alloc_a(char **argv);
 int			*alloc_b(char **argv);
 int			arg_count(char **argv);
+void		quick_sort(t_stacks *s);
+void		k_sort(t_stacks *s);
 char		**rm_space(char **argv, int i, int count);
 
 #endif

@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   quick_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mreidenb <mreidenb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:28:19 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/10 20:24:22 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/20 16:56:37 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static	void	quick_sort(t_stacks *s);
 
 void	make_ranges(t_stacks *s)
 {
@@ -61,7 +60,7 @@ void	insertion_sort(t_stacks *s, int *stacks, int num_stacks)
 	quick_sort(s);
 }
 
-static	void	quick_sort(t_stacks *s)
+void	quick_sort(t_stacks *s)
 {
 	int	pivot;
 

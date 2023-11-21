@@ -6,13 +6,13 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:12:41 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/11/20 17:33:43 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/21 00:35:51 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-void	sa(t_stacks *s)
+void	b_sa(t_stacks *s)
 {
 	int	temp;
 
@@ -22,10 +22,9 @@ void	sa(t_stacks *s)
 		s->a[0] = s->a[1];
 		s->a[1] = temp;
 	}
-	ft_printf("sa\n");
 }
 
-void	sb(t_stacks *s)
+void	b_sb(t_stacks *s)
 {
 	int	temp;
 
@@ -35,16 +34,15 @@ void	sb(t_stacks *s)
 		s->b[0] = s->b[1];
 		s->b[1] = temp;
 	}
-	ft_printf("sb\n");
 }
 
-void	ss(t_stacks *s)
+void	b_ss(t_stacks *s)
 {
 	sa(s);
 	sb(s);
 }
 
-void	pa(t_stacks *s)
+void	b_pa(t_stacks *s)
 {
 	int	i;
 
@@ -66,10 +64,9 @@ void	pa(t_stacks *s)
 			i++;
 		}
 	}
-	ft_printf("pa\n");
 }
 
-void	pb(t_stacks *s)
+void	b_pb(t_stacks *s)
 {
 	int	i;
 
@@ -91,5 +88,4 @@ void	pb(t_stacks *s)
 			i++;
 		}
 	}
-	ft_printf("pb\n");
 }

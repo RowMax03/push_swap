@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:40:31 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/05/10 19:26:47 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/05/11 00:37:05 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,11 @@ static int	check_numbers(char **argv)
 		y = 0;
 		while (argv[i] && argv[i][y])
 		{
-			if (!ft_isdigit(argv[i][y]) && (argv[i][y] != '-'
-			|| argv[i][y] != '+') && !ft_isdigit(argv[i][y + 1]))
+			if (!ft_isdigit(argv[i][y]) && ((argv[i][y] != '-'
+			&& argv[i][y] != '+')
+			|| (argv[i][y + 1] == '-' && argv[i][y + 1] == '+')))
+				return (-1);
+			if (argv[i][y] == '-' && !ft_isdigit(argv[i][y + 1]))
 				return (-1);
 			y++;
 		}
