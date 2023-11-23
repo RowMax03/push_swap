@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 15:28:19 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/11/21 20:44:34 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:57:57 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,22 @@ void	make_ranges(t_stacks *s)
 void	insertion_sort(t_stacks *s, int *stacks, int num_stacks)
 {
 	int	i;
-	int	j;
 	int	tmp;
+	int	na;
 
 	i = 0;
+	na = s->na;
 	while (i < num_stacks && s->na)
 	{
-		j = 0;
-		while (j < stacks[i + 1] - stacks[i] + 1 && s->na)
+		while (1)
 		{
 			tmp = num_getter_range(s, stacks[i], stacks[i + 1]);
-			rotation_decide(s, tmp);
-			if (tmp >= stacks[i] && tmp <= stacks[i + 1])
+			if (s->na && tmp == s->a[0])
 				pb(s);
-			j++;
+			else
+				break ;
 		}
+		k_sort_range(s, stacks[i], stacks[i + 1], na);
 		i++;
 	}
 	quick_sort(s);
@@ -64,7 +65,7 @@ void	quick_sort(t_stacks *s)
 	int	pivot;
 
 	pivot = s->nb - 1;
-	while (s->nb != 0)
+	while (s->nb >= 1)
 	{
 		if (s->b[0] == pivot)
 		{

@@ -6,11 +6,11 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:22:38 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/11/21 01:10:41 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/23 19:01:13 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "checker.h"
 
 void	b_ra(t_stacks *s)
 {

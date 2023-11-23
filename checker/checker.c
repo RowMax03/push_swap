@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 22:56:06 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/11/21 17:28:19 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/23 17:36:32 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,16 @@ static int	do_operations(t_stacks *s, char *operation)
 static int	checker(t_stacks *s)
 {
 	int		i;
+	int		na;
 
+	na = s->na;
 	while (do_operations(s, get_next_line(0)))
 		;
+	if (na != s->na)
+	{
+		ft_printf("KO\n");
+		exit(0);
+	}
 	i = 0;
 	while (i < s->na - 1)
 	{

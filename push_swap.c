@@ -6,7 +6,7 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 16:42:21 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/11/21 20:52:02 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:59:33 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@
 
 #define MAX_SIZE 100
 
-/*
-** push_swap.c
-** 42 School Style
-*/
-
 static void	algo_select(t_stacks *s)
 {
 	if (s->na <= 3)
@@ -28,7 +23,7 @@ static void	algo_select(t_stacks *s)
 	else if (s->na <= 5)
 		sort_5(s);
 	else
-		k_sort(s);
+		make_ranges(s);
 }
 
 int	main(int argc, char **argv)

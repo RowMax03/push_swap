@@ -6,11 +6,11 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 09:28:41 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/11/21 14:48:48 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:31:48 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 int	ft_is_sorted_a(t_stacks *s)
 {

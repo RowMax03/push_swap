@@ -6,11 +6,11 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/25 14:12:41 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/11/21 00:35:51 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:55:08 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "checker.h"
 
 void	b_sa(t_stacks *s)
 {
@@ -38,8 +38,8 @@ void	b_sb(t_stacks *s)
 
 void	b_ss(t_stacks *s)
 {
-	sa(s);
-	sb(s);
+	b_sa(s);
+	b_sb(s);
 }
 
 void	b_pa(t_stacks *s)

@@ -6,16 +6,15 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 23:06:29 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/11/21 00:58:33 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:33:40 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
 
-# include "../includes/libft/libft.h"
-# include "../includes/get_next_line/get_next_line.h"
-# include "../push_swap.h"
+# include "push_swap.h"
+# include "get_next_line.h"
 
 void	b_pa(t_stacks *s);
 void	b_pb(t_stacks *s);

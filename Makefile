@@ -1,62 +1,92 @@
 ################################################################################
-#                                     CONFIG                                   #
+#     ██████╗ ██╗   ██╗███████╗██╗  ██╗    ███████╗██╗    ██╗ █████╗ ██████╗   #
+#     ██╔══██╗██║   ██║██╔════╝██║  ██║    ██╔════╝██║    ██║██╔══██╗██╔══██╗  #
+#     ██████╔╝██║   ██║███████╗███████║    ███████╗██║ █╗ ██║███████║██████╔╝  #
+#     ██╔═══╝ ██║   ██║╚════██║██╔══██║    ╚════██║██║███╗██║██╔══██║██╔═══╝   #
+#     ██║     ╚██████╔╝███████║██║  ██║    ███████║╚███╔███╔╝██║  ██║██║       #
+#     ╚═╝      ╚═════╝ ╚══════╝╚═╝  ╚═╝    ╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝       #
 ################################################################################
 
 NAME = push_swap
 
 CC =		gcc
 CFLAGS =	-Wall -Werror -Wextra
-AR =		ar rcs
 RM =		rm -rf
 
 ################################################################################
 #                                 PROGRAM'S SRCS                               #
 ################################################################################
 
-SRCS        :=            push_wap.c \
-                          push_swap.c \
-                          quick_sort.c \
-                          src/index.c \
-                          src/operations/get_rotated.c \
-                          src/operations/swap_push.c \
-                          src/sort_3.c \
-						  src/rotate_direction.c \
-						  src/input_check.c \
-						  keta_sort.c
+SRCS = $(INPUT) $(OPERATIONS) $(SORTING) push_swap.c
+
+SRC = $(addprefix $(SRC_DIR), $(SRCS))
+SRC_DIR = src/
+
+INPUT = $(addprefix $(SRC_DIR), $(addprefix $(INPUT_DIR), $(INPUT_FILES)))
+INPUT_DIR = input/
+INPUT_FILES = argv_to_stack.c input_check.c index.c
+
+OPERATIONS = $(addprefix $(SRC_DIR), $(addprefix $(OPERATIONS_DIR), $(OPERATION_FILES)))
+OPERATIONS_DIR = operations/
+OPERATION_FILES = get_rotated.c swap_push.c
+
+SORTING = $(addprefix $(SRC_DIR), $(addprefix $(SORTING_DIR), $(SORTING_FILES)))
+SORTING_DIR = sorting/
+SORTING_FILES = quick_sort.c sort_3.c k_insert.c rotate_direction.c
+
+################################################################################
+#                              PROGRAM'S INCLUDES                              #
+################################################################################
+
+LIBFT =	./libs/libft/libft.a
+LIBFT_DIR = ./libs/libft
+
+$(LIBFT):
+			@cd libs/libft && make && make clean
+
+GET_NEXT_LINE = libs/get_next_line/get_next_line.c \
+				libs/get_next_line/get_next_line_utils.c
+
+INCLUDES =	-I ./includes \
+			-I ./libs/libft \
+			-I ./libs/get_next_line
+
+################################################################################
+#                                 PROGRAM'S OBJS                               #
+################################################################################
 
 OBJS =		$(SRCS:.c=.o)
 
-LIBFT =	./includes/libft/libft.a
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME):	$(LIBFT) $(OBJS)
 			$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
-$(LIBFT):
-			@cd includes/libft && make && make clean
-
-GET_NEXT_LINE = includes/get_next_line/get_next_line.c \
-				includes/get_next_line/get_next_line_utils.c
-
-BONUS_SRCS = checker/checker.c \
-			 checker/operations/get_rotated.c \
-			 checker/operations/swap_push.c \
-			 push_wap.c \
-             quick_sort.c \
-             src/index.c \
-             src/operations/get_rotated.c \
-             src/operations/swap_push.c \
-             src/sort_3.c \
-			 src/rotate_direction.c \
-			 src/input_check.c \
-			 keta_sort.c \
-			 $(GET_NEXT_LINE)
-
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+################################################################################
+#                                     BONUS                                    #
+################################################################################
 
 BONUS_NAME = bonus_checker
 
+BONUS_SRCS = $(INPUT) $(CHECKER) $(CHEKER_OPERATIONS) $(GET_NEXT_LINE)
+
+CHECKER = $(addprefix $(CHECKER_DIR), $(CHECKER_FILES))
+CHECKER_DIR = checker/
+CHECKER_FILES = checker.c
+
+CHEKER_OPERATIONS = $(addprefix $(CHECKER_DIR), $(addprefix $(CHEKER_OPERATIONS_DIR), $(CHEKER_OPERATIONS_FILES)))
+CHEKER_OPERATIONS_DIR = operations/
+CHEKER_OPERATIONS_FILES = get_rotated.c swap_push.c
+
+BONUS_OBJS = $(BONUS_SRCS:.c=.o)
+
 $(BONUS_NAME): $(LIBFT) $(BONUS_OBJS)
 	$(CC) $(CFLAGS) $(BONUS_OBJS) $(LIBFT) -o $(BONUS_NAME)
+
+################################################################################
+#                                     RULES                                    #
+################################################################################
 
 bonus: $(BONUS_NAME)
 
@@ -69,7 +99,7 @@ clean :
 fclean :	clean
 			@$(RM) $(NAME)
 			@$(RM) $(BONUS_NAME)
-			@cd	includes/libft && make fclean
+			@cd	libs/libft && make fclean
 
 re :		fclean all
 

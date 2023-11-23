@@ -6,11 +6,11 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 15:57:04 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/11/21 20:40:37 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:31:45 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 int	closest_high(int *s, int n, int num)
 {

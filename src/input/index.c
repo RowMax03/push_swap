@@ -1,52 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keta_sort.c                                        :+:      :+:    :+:   */
+/*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 16:41:58 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/11/21 20:51:26 by mreidenb         ###   ########.fr       */
+/*   Created: 2023/04/24 16:32:15 by mreidenb          #+#    #+#             */
+/*   Updated: 2023/11/23 18:31:36 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int ft_sqrt(int num)
+static int	count_smaller(int value, int *temp, int size)
 {
-	int	res;
+	int	i;
+	int	amount;
 
-	res = 0;
-	while (res * res < num)
-		res++;
-	return (res);
-}
-
-void	k_sort(t_stacks *s)
-{
-	int	range;
-	int i;
-
-	i = 1;
-	range = ft_sqrt(s->na) * 14 / 10;
-	ft_printf("");
-	while (s->na)
+	amount = 0;
+	i = 0;
+	while (i < size)
 	{
-		// ft_printf("s index: %d\n", s->a[0]);
-		if (s->a[0] <= i)
-		{
-			pb(s);
-			rb(s);
-			i++;
-		}
-		else if (s->a[0] <= i + range)
-		{
-			pb(s);
-			i++;
-		}
-		else
-			ra(s);
+		if (value > temp[i])
+			amount++;
+		i++;
 	}
-	quick_sort(s);
+	return (amount);
 }
 
+void	change_to_index(t_stacks *s)
+{
+	int		*temp;
+	int		i;
+
+	temp = ft_calloc(s->na, sizeof(int));
+	i = 0;
+	while (i < s->na)
+	{
+		temp[i] = s->a[i];
+		i++;
+	}
+	i = 0;
+	while (i < s->na)
+	{
+		s->a[i] = count_smaller(s->a[i], temp, s->na);
+		i++;
+	}
+	free(temp);
+}

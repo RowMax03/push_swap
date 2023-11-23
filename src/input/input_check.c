@@ -6,11 +6,11 @@
 /*   By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:40:31 by mreidenb          #+#    #+#             */
-/*   Updated: 2023/11/21 17:55:48 by mreidenb         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:31:42 by mreidenb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 #include "stdio.h"
 
 static int	check_numbers(char **argv);
