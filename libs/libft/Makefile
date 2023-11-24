@@ -6,7 +6,7 @@
 #    By: mreidenb <mreidenb@student.42heilbronn.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 08:11:09 by mreidenb          #+#    #+#              #
-#    Updated: 2023/05/10 16:07:18 by mreidenb         ###   ########.fr        #
+#    Updated: 2023/11/23 20:43:42 by mreidenb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ MAINOBJ	= $(MAINFILES:.c=.o)
 BONUSOBJ = $(BONUSFILES:.c=.o)
 
 $(NAME): $(MAINOBJ)
-	$(AR) $(ARFLAGS) $@ $^
+	@$(AR) $(ARFLAGS) $@ $^
 
 bonus:	$(BONUSOBJ)
 	$(AR) $(ARFLAGS) $(NAME) $^ 
